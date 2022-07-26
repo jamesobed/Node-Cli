@@ -25,7 +25,7 @@ const args = require("minimist")(process.argv.slice(2), {
 if (args.help) {
   printHelp();
 } else if (args.file) {
-  syncprocessFilePath(process.resolve(args.file));
+  syncprocessFilePath(path.resolve(args.file));
   //   console.log(filePath);
   //   console.log(__dirname);
 } else {
@@ -47,7 +47,7 @@ function error(msg, i) {
   }
 }
 function syncprocessFilePath(filePath) {
-    const readi = fs.readFileSync(filePath);
-    console.log(readi);
-
+  const readi = fs.readFileSync(filePath);
+  // console.log(readi);
+  process.stdout.write(readi);
 }
